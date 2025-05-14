@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background-color: #fff;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.login-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #5d4b8c;
+    position: relative;
+    margin-right: 10px;
+}
+
+.logo-icon::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #5d4b8c;
+}
+
+.logo-icon::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #8a70d6;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+
+
+.sign-in-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #5d4b8c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.signup-prompt {
+    text-align: center;
+    color: #666;
+}
+
+.signup-link {
+    color: #5d4b8c;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.illustration-section {
+    flex: 1;
+    background-color: #b19cd9;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../static/images/LG.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+}
+
+@media (max-width: 768px) {
+    .illustration-section {
+        display: none;
+    }
+}
