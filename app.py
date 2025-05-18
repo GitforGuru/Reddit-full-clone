@@ -6,9 +6,9 @@ from model import db, User
 
 app = Flask(__name__)
 # Configure database - replace with your actual MySQL credentials
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:password@localhost/signit_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://GURITO:GURITO@localhost/signit_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'your_secret_key_here'  # Change this to a random secret key
+app.config['SECRET_KEY'] = 'your_secret_key'  # Change this to a random secret key
 
 # Initialize the database with this app
 db.init_app(app)
@@ -19,7 +19,7 @@ with app.app_context():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return redirect(url_for('login'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -86,7 +86,6 @@ def logout():
     session.clear()
     flash('You have been logged out')
     return redirect(url_for('login'))
-
 @app.route('/dashboard')
 def dashboard():
     # Check if user is logged in

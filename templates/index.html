@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signit Navbar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Futura:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      /* Fallback for Futura if not available */
+      body, button, input {
+        font-family: 'Futura', Arial, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='sl.png') }}" alt="Dragon Logo">
+                <img src="{{ url_for('static', filename='st.png') }}" alt="Signit Logo">
+            </div>
+        </div>
+        <div class="navbar-center">
+            <input type="text" class="search-bar" placeholder="Search Signit">
+        </div>
+        <div class="navbar-right">
+            <button class="icon-btn notification-btn" title="Notifications">
+                <svg width="24" height="24" fill="none" stroke="#53a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 01-3.46 0"></path>
+                </svg>
+            </button>
+            <button class="create-post-btn">Create Post</button>
+            <div class="profile-dropdown">
+                <button class="icon-btn profile-btn" onclick="toggleDropdown()" title="Profile">
+                    <svg width="28" height="28" fill="#53a6ff" viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M2 20c0-4 8-6 10-6s10 2 10 6v2H2v-2z"/>
+                    </svg>
+                </button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <form action="/logout" method="post">
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <script>
+        function toggleDropdown() {
+            var menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show');
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
