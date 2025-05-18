@@ -27,6 +27,7 @@ def register():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+        dob= request.form['dob']
         
         # Check if username or email already exists
         if User.query.filter_by(username=username).first():
@@ -41,8 +42,10 @@ def register():
         new_user = User(
             username=username,
             email=email,
+            dob=dob,
             password_hash=generate_password_hash(password),
             created_at=datetime.utcnow()
+
         )
         
         # Add to database
